@@ -44,7 +44,7 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-          contact => contact.id === action.payload
+          contact => contact.id === action.payload.id
         );
         state.items.splice(index, 1);
       })
@@ -54,27 +54,6 @@ const contactsSlice = createSlice({
         state.error = 'Someone use old function, fix it!';
       });
   },
-
-  // reducers: {
-  //   addContact: {
-  //     reducer(state, action) {
-  //       state.push(action.payload);
-  //     },
-  //     prepare(inputData) {
-  //       return {
-  //         payload: {
-  //           id: nanoid(),
-  //           name: inputData.name,
-  //           number: inputData.number,
-  //         },
-  //       };
-  //     },
-  //   },
-  //   deleteContact(state, action) {
-  //     const index = state.findIndex(contact => contact.id === action.payload);
-  //     state.splice(index, 1);
-  //   },
-  // },
 });
 
 export const contactsReducer = contactsSlice.reducer;
